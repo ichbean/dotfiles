@@ -1,0 +1,37 @@
+[options]
+font = Monospace 13
+cursor_shape = block
+scroll_on_output = false
+scroll_on_keystroke = true
+audible_bell = false
+allow_bold = true
+mouse_autohide = true
+dynamic_title = true
+clickable_url = true
+
+
+[colors]
+foreground = #2D2006
+background = #FAF8F5
+
+color0 = #FFFFFF
+color1 = #896724
+color2 = #4D71BD
+color3 = #977D4A
+color4 = #063289
+color5 = #B29762
+color6 = #728FCB
+color7 = #2D2006
+
+color8 = #2D2006
+color9 = #896724
+color10 = #4D71BD
+color11 = #977D4A
+color12 = #063289
+color13 = #B29762
+color14 = #728FCB
+color15 = #2D2006
+
+color16 = #AEB1B7
+color17 = #B6AD9A
+color18 = #D22B09

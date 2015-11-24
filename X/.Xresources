@@ -1,0 +1,45 @@
+Xft.dpi:  96
+Xft.antialias:  true
+Xft.rgba: rgb
+Xft.hinting: true
+Xft.hintstyle:  hintslight
+
+URxvt.font: xft:PragmataPro:size=13
+URxvt.scrollBar: none
+URxvt.cursorBlink: 1
+
+URxvt*.foreground:   #2D2006
+URxvt*.background:   #FAF8F5
+! URxvt*.cursorColor:  #477EEB
+
+rofi.bw: 10
+rofi.lines: 5
+rofi.width: 30
+rofi.line-margin: 0
+rofi.font: mono 21
+rofi.hide-scrollbar: true
+rofi.separator-style: none
+rofi.bg: #FAF8F5
+rofi.fg: #063289
+rofi.hlbg: #FAF8F5
+rofi.hlfg: #728FCB
+rofi.bc: #063289
+
+
+
+*color0:  #FAF8F5
+*color1:  #896724
+*color2:  #728FCB
+*color3:  #B6AD9A
+*color4:  #063289
+*color5:  #B29762
+*color6:  #477EEB
+*color7:  #2D2006
+*color8:  #2D2006
+*color9:  #896724
+*color10: #728FCB
+*color11: #B6AD9A
+*color12: #063289 
+*color13: #B29762
+*color14: #477EEB
+*color15: #2D2006

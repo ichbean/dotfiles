@@ -9,7 +9,7 @@ set $tag4 4:MUSIC
 set $tag5 5
 
 # Autostart
-exec urxvt
+exec termite
 
 # Workspace assignments
 assign [class="^URxvt$"]  $tag1

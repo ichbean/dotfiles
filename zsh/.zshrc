@@ -1,3 +1,7 @@
+# Default applications
+export EDITOR="nvim"
+export BROWSER="firefox"
+
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000

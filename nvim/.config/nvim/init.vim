@@ -21,6 +21,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'scrooloose/syntastic'
 Plugin 'itchyny/lightline.vim'
+Plugin 'godlygeek/tabular'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -34,7 +35,11 @@ nmap  <Space>     <Plug>(easymotion-s)
 map   <Leader>j   <Plug>(easymotion-j)
 map   <Leader>k   <Plug>(easymotion-k)
 
-" COLORS
+" Colors
+let g:lightline = {
+  \ 'colorscheme': 'duotone',
+  \ }
+
 hi Comment    ctermfg=16
 hi Error      ctermfg=0 ctermbg=18
 hi Identifier ctermfg=1

@@ -4,16 +4,17 @@ new_window pixel 0
 # Workspace tags
 set $tag1 1:TERMINAL
 set $tag2 2:WWW
-set $tag3 3:VIM
-set $tag4 4:MUSIC
+set $tag3 3
+set $tag4 4
 set $tag5 5
 
 # Autostart
 exec termite
 
 # Workspace assignments
-assign [class="^URxvt$"]  $tag1
-assign [class="^Firefox$"] $tag2
+assign [class="^Termite$"]  $tag1
+assign [class="^Urxvt$"]    $tag1
+assign [class="^Firefox$"]  $tag2
 
 # Font for window titles. Will also be used by the bar unless a different font
 font pango:PragmataPro 13

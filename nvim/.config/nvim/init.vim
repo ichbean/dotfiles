@@ -12,7 +12,7 @@ filetype off
 cmap w!! w !sudo tee > /dev/null %
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.config/nvim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
@@ -52,8 +52,13 @@ hi Function   ctermfg=4
 hi Constant   ctermfg=4
 hi Number     ctermfg=4
 hi String     ctermfg=4
+hi StatusLine cterm=none ctermfg=7 ctermbg=0
+hi SignColumn ctermbg=0
+hi WildMenu   cterm=bold ctermfg=7 ctermbg=0
 hi Visual     ctermfg=0 ctermbg=17
-
+hi Search     ctermfg=0 ctermbg=6 
+hi MatchParen ctermfg=0 ctermbg=5
+hi ErrorMsg   ctermbg=0 ctermfg=18 cterm=bold
 " Language specific colors
 hi htmlArg            ctermfg=1
 hi htmlStatement      ctermfg=7

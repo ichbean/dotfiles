@@ -8,8 +8,9 @@ set expandtab
 set clipboard+=unnamedplus
 filetype off
 
-" sudo write
+" Mappings
 cmap w!! w !sudo tee > /dev/null %
+noremap <F5> :w<Enter>
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.config/nvim/bundle/Vundle.vim
@@ -26,6 +27,18 @@ Plugin 'godlygeek/tabular'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+
+" Syntastic configuration
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 
 " Easymotion configuration
 let g:EasyMotion_smartcase = 1
@@ -56,8 +69,10 @@ hi StatusLine cterm=none ctermfg=7 ctermbg=0
 hi SignColumn ctermbg=0
 hi WildMenu   cterm=bold ctermfg=7 ctermbg=0
 hi Visual     ctermfg=0 ctermbg=17
+hi VertSplit  cterm=none ctermfg=4
+hi StatusLineNC cterm=none
 hi Search     ctermfg=0 ctermbg=6 
-hi MatchParen ctermfg=0 ctermbg=5
+hi MatchParen ctermfg=1 ctermbg=5
 hi ErrorMsg   ctermbg=0 ctermfg=18 cterm=bold
 hi EasymotionTarget cterm=bold ctermfg=18
 hi EasymotionShade ctermfg=17

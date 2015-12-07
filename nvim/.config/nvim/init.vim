@@ -13,15 +13,15 @@ cmap w!! w !sudo tee > /dev/null %
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.config/nvim/bundle/Vundle.vim
-call vundle#begin()
+call vundle#begin('~/.config/nvim/bundle')
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
-Plugin 'scrooloose/nerdtree'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'scrooloose/syntastic'
-Plugin 'itchyny/lightline.vim'
 Plugin 'godlygeek/tabular'
+"Plugin 'itchyny/lightline.vim'
+"Plugin 'scrooloose/nerdtree'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

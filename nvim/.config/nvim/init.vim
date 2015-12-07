@@ -59,6 +59,8 @@ hi Visual     ctermfg=0 ctermbg=17
 hi Search     ctermfg=0 ctermbg=6 
 hi MatchParen ctermfg=0 ctermbg=5
 hi ErrorMsg   ctermbg=0 ctermfg=18 cterm=bold
+hi EasymotionTarget cterm=bold ctermfg=18
+hi EasymotionShade ctermfg=17
 " Language specific colors
 hi htmlArg            ctermfg=1
 hi htmlStatement      ctermfg=7

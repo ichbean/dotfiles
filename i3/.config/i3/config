@@ -21,7 +21,7 @@ exec termite
 assign [class="^Termite$"]  $tag1
 assign [class="^Urxvt$"]    $tag1
 assign [class="^Firefox$"]  $tag2
-assign [class="^cmus$"]  $tag5
+assign [class="^cmus$"]     $tag5
 
 
 # Bindings
@@ -163,6 +163,18 @@ mode "resize" {
 
 #bindsym Mod1+r mode "resize"
 
+
+# Colours
+# class                 border  backgr. text    indicator
+client.focused          #4D71BD #063289 #FAF8F5 #2E9EF4
+client.focused_inactive #333333 #AEB1B7 #FAF8F5 #484E50
+client.unfocused        #333333 #AEB1B7 #888888 #292D2E
+client.urgent           #2F343A #D22B09 #FAF8F5 #900000
+client.placeholder      #000000 #0C0C0C #FAF8F5 #000000
+
+client.background       #FAF8F5
+
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
@@ -174,8 +186,8 @@ bar {
           background  #FAF8F5
           statusline  #063289
           separator   #728FCB 
-          focused_workspace #063289 #063289 #FAF8F5
+          focused_workspace   #063289 #063289 #FAF8F5
           inactive_workspace  #728FCB #728FCB #FAF8F5
-          urgent_workspace #896724 #896724 #FAF8F5
+          urgent_workspace    #D22B09 #D22B09 #FAF8F5
           }
 }

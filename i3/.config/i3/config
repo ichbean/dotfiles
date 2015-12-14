@@ -15,7 +15,7 @@ set $run Mod1+Shift
 
 # Autostart
 exec termite
-
+sh ~/.fehbg
 
 # Workspace assignments
 assign [class="^Termite$"]  $tag1

@@ -17,6 +17,8 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 autoload -Uz compinit && compinit
 autoload -U promptinit && promptinit
 PURE_PROMPT_SYMBOL=">"
+PURE_GIT_DOWN_ARROW="↓"
+PURE_GIT_UP_ARROW="↑"
 prompt pure
 
 fpath=( "$HOME/.zfunctions" $fpath )

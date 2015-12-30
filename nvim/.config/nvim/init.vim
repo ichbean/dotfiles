@@ -37,7 +37,10 @@ nmap  <Space>     <Plug>(easymotion-s)
 map   <Leader>j   <Plug>(easymotion-j)
 map   <Leader>k   <Plug>(easymotion-k)
 
-" Colors
+"|------------------------------------------------------------
+"| SYNTAX COLORS
+"|------------------------------------------------------------
+
 let g:lightline = {
   \ 'colorscheme': 'duotone',
   \ }
@@ -65,9 +68,12 @@ hi MatchParen ctermfg=1 ctermbg=5
 hi ErrorMsg   ctermbg=0 ctermfg=18 cterm=bold
 hi EasymotionTarget cterm=bold ctermfg=18
 hi EasymotionShade ctermfg=17
+" --------------------------------------------------
 " Language specific colors
+" --------------------------------------------------
 hi htmlArg            ctermfg=1
 hi htmlStatement      ctermfg=7
 hi htmlTag            ctermfg=17
 hi htmlSpecialTagName ctermfg=7
-hi htmlEndTag         ctermfg=17
+hi link htmlEndTag    htmlTag
+hi link xmlEndTag     xmlTag

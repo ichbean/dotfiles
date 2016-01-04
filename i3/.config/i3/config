@@ -6,7 +6,7 @@ new_float pixel 3
 # Tags
 set $tag1 1:TERMINAL
 set $tag2 2:WWW
-set $tag3 3
+set $tag3 3:IRC
 set $tag4 4
 set $tag5 5:MUSIC
 
@@ -28,6 +28,8 @@ assign [class="^cmus$"]     $tag5
 bindsym Mod1+r exec rofi -show run
 bindsym Mod1+Return exec termite
 bindsym $run+m exec termite -e cmus --class=cmus --title=cmus
+
+# Window settings
 for_window [class="^cmus$"] floating enable, border pixel 5
 
 

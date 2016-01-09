@@ -1,0 +1,7 @@
+Gtk/FontName "Arimo 12"
+Gtk/ToolbarIconSize 3
+Gtk/MenuImages 1
+Net/CursorBlink 1
+Net/CursorBlinkTime 1200
+Net/DoubleClickDistance 5
+Net/IconThemeName "Numix-Circle"

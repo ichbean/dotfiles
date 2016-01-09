@@ -42,4 +42,5 @@ setxkbmap -option "caps:swapescape"
 setxkbmap dvorak
 
 compton -b --backend glx --vsync opengl &
+xsettingsd &
 exec i3

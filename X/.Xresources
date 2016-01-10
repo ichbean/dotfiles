@@ -11,6 +11,8 @@ URxvt.cursorBlink: 0
 URxvt*.foreground:   #2D2006
 URxvt*.background:   #FAF8F5
 URxvt*.cursorColor:  #9EB8EB
+URxvt*.highlightColor: #B6AD9A
+URxvt*.highlightTextColor: #FAF8F5 
 
 rofi.bw:               10
 rofi.lines:            5

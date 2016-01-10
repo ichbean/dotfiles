@@ -7,12 +7,13 @@ Xft.hintstyle:  hintslight
 URxvt.font: xft:PragmataPro:size=13
 URxvt.scrollBar: none
 URxvt.cursorBlink: 0
+URxvt.internalBorder: 10
 
-URxvt*.foreground:   #2D2006
-URxvt*.background:   #FAF8F5
-URxvt*.cursorColor:  #9EB8EB
-URxvt*.highlightColor: #B6AD9A
-URxvt*.highlightTextColor: #FAF8F5 
+URxvt*.foreground:          #2D2006
+URxvt*.background:          #FAF8F5
+URxvt*.cursorColor:         #9EB8EB
+URxvt*.highlightColor:      #B6AD9A
+URxvt*.highlightTextColor:  #FAF8F5
 
 rofi.bw:               10
 rofi.lines:            5

@@ -21,7 +21,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'scrooloose/syntastic'
 Plugin 'godlygeek/tabular'
-"Plugin 'itchyny/lightline.vim'
+Plugin 'itchyny/lightline.vim'
 "Plugin 'scrooloose/nerdtree'
 
 " All of your Plugins must be added before the following line

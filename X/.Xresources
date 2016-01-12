@@ -8,6 +8,7 @@ URxvt.font: xft:PragmataPro:size=13
 URxvt.scrollBar: none
 URxvt.cursorBlink: 0
 URxvt.internalBorder: 10
+URxvt.pointerBlank: 1
 
 URxvt*.foreground:          #2D2006
 URxvt*.background:          #FAF8F5

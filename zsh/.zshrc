@@ -25,6 +25,7 @@ fpath=( "$HOME/.zfunctions" $fpath )
 
 alias ls='ls --color=auto '
 alias cp='cp -v '
+alias mv='mv -v '
 alias install='sudo pacman -S '
 alias aur='pacaur -y '
 alias upgrade='sudo pacman -Syu && pacaur -u'

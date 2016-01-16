@@ -6,6 +6,7 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 set clipboard+=unnamedplus
+set noshowmode
 filetype off
 
 " Mappings
@@ -29,23 +30,32 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 
-" Easymotion configuration
+let g:lightline = {
+    \ 'colorscheme': 'duotone',
+    \ 'active': {
+    \   'left': [[ 'mode' ],
+    \             [ 'readonly', 'filename', 'fugitive', 'modified' ]] },
+    \ 'component': {
+    \   'readonly': '%{&readonly?"×":""}',
+    \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
+    \ },
+    \ 'component_visible_condition': {
+    \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())' }
+    \ }
+
+
 let g:EasyMotion_smartcase = 1
 
 map   <Leader>    <Plug>(easymotion-prefix)
 nmap  <Space>     <Plug>(easymotion-s)
 map   <Leader>j   <Plug>(easymotion-j)
 map   <Leader>k   <Plug>(easymotion-k)
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
+map   /           <Plug>(easymotion-sn)
+omap  /           <Plug>(easymotion-tn)
 
 "|------------------------------------------------------------
 "| SYNTAX COLOURS
 "|------------------------------------------------------------
-
-let g:lightline = {
-  \ 'colorscheme': 'duotone',
-  \ }
 
 hi Comment    ctermfg=16
 hi Error      ctermfg=0 ctermbg=18

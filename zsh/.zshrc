@@ -1,7 +1,3 @@
-# Default applications
-export EDITOR="nvim"
-export BROWSER="firefox"
-
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
@@ -33,8 +29,6 @@ alias search='pacaur -Ss '
 alias remove='sudo pacman -Rs '
 #todo.txt
 alias t="todo.sh -P"
-export TODOTXT_DEFAULT_ACTION=ls
 
 #FZF
-export FZF_DEFAULT_COMMAND='find .'
 . /etc/profile.d/fzf.zsh

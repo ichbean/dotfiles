@@ -15,7 +15,8 @@ set $run Mod1+Shift
 
 # Autostart
 exec termite
-exec feh --bg-scale ~/Pictures/wallpaper.png
+#exec feh --bg-scale ~/Pictures/wallpaper.png
+exec hsetroot -solid "#FAF8F5"
 
 # Workspace assignments
 assign [class="^Termite$"]  $tag1

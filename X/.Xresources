@@ -5,10 +5,10 @@ Xft.hinting:    true
 Xft.hintstyle:  hintslight
 
 URxvt.font: xft:PragmataPro:size=13
-URxvt.scrollBar: none
+URxvt.scrollBar: 0
 URxvt.cursorBlink: 0
-URxvt.internalBorder: 10
 URxvt.pointerBlank: 1
+URxvt.geometry: 150x53
 
 URxvt*.foreground:          #2D2006
 URxvt*.background:          #FAF8F5

@@ -1,4 +1,5 @@
 fonts.dtd
+.netrwhist
 nvim/.config/nvim/bundle/*
 !nvim/.config/nvim/bundle/lightline.vim
 nvim/.config/nvim/bundle/lightline.vim/*

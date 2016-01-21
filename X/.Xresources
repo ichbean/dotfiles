@@ -10,6 +10,7 @@ URxvt.cursorBlink: 0
 URxvt.pointerBlank: 1
 URxvt.geometry: 150x53
 URxvt.internalBorder: 1
+URxvt.iso14755: 0
 
 URxvt*.foreground:          #2D2006
 URxvt*.background:          #FAF8F5

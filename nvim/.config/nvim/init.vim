@@ -23,6 +23,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'scrooloose/syntastic'
+Plugin 'mattn/emmet-vim'
 Plugin 'godlygeek/tabular'
 "Plugin 'scrooloose/nerdtree'
 
@@ -30,6 +31,9 @@ Plugin 'godlygeek/tabular'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+imap   <C-j>   <plug>(emmet-move-next)
+imap   <C-k>   <plug>(emmet-move-prev)
+autocmd FileType html,css,scss imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
 let g:lightline = {
     \ 'colorscheme': 'duotone',
@@ -78,11 +82,12 @@ hi VertSplit  cterm=none ctermfg=6
 hi StatusLine ctermfg=0 ctermbg=4
 hi StatusLineNC cterm=none
 hi Search     ctermfg=0 ctermbg=6 
-hi MatchParen ctermfg=0 ctermbg=5
+hi MatchParen ctermfg=0 ctermbg=19
 hi ErrorMsg   ctermbg=0 ctermfg=18 cterm=bold
 " Language specific colours
 hi htmlArg            ctermfg=1
 hi htmlStatement      ctermfg=7
+hi htmlLink           ctermfg=5
 hi htmlTag            ctermfg=17
 hi htmlSpecialTagName ctermfg=7
 hi link htmlEndTag    htmlTag

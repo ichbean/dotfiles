@@ -27,7 +27,7 @@ assign [class="^cmus$"]     $tag5
 
 # Bindings
 bindsym Mod1+r exec rofi -show run
-bindsym Mod1+Return exec termite
+bindsym Mod1+Return exec i3-sensible-terminal
 bindsym $run+m exec termite -e cmus --class=cmus --title=cmus
 
 # Window settings

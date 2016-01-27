@@ -9,11 +9,18 @@ set clipboard+=unnamedplus
 set noshowmode
 filetype off
 
-" Mappings
-cmap w!! w !sudo tee > /dev/null %
-noremap <F5> :w<CR>
 
-" set the runtime path to include Vundle and initialize
+noremap <F5>    :w<CR>
+imap    <C-j>   <plug>(emmet-move-next)
+imap    <C-k>   <plug>(emmet-move-prev)
+autocmd FileType html,css,scss imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+cmap w!! w !sudo tee > /dev/null %
+
+
+"///////////////////////////////////////////////////////////
+"| VUNDLE
+"\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
 set rtp+=~/.config/nvim/bundle/Vundle.vim
 call vundle#begin('~/.config/nvim/bundle')
 
@@ -27,26 +34,57 @@ Plugin 'mattn/emmet-vim'
 Plugin 'godlygeek/tabular'
 "Plugin 'scrooloose/nerdtree'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+call vundle#end()
+filetype plugin indent on
 
-imap   <C-j>   <plug>(emmet-move-next)
-imap   <C-k>   <plug>(emmet-move-prev)
-autocmd FileType html,css,scss imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+
+"///////////////////////////////////////////////////////////
+"| LIGHTLINE
+"\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 let g:lightline = {
     \ 'colorscheme': 'duotone',
     \ 'active': {
-    \   'left': [[ 'mode' ],
-    \             [ 'readonly', 'filename', 'fugitive', 'modified' ]] },
-    \ 'component': {
-    \   'readonly': '%{&readonly?"×":""}',
-    \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
-    \ },
-    \ 'component_visible_condition': {
-    \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())' }
+    \   'left': [[ 'mode' ], [ 'filename', 'fugitive' ]],
+    \   'right': [ [ 'lineinfo' ], ['percent'], [ 'fileencoding', 'filetype' ]] },
+    \ 'component_function': {
+    \   'fugitive': 'LightLineFugitive',
+    \   'modified': 'LightLineModified',
+    \   'readonly': 'LightLineReadonly',
+    \   'filename': 'LightLineFilename' }
     \ }
+
+function! LightLineModified()
+  if &filetype == "help"
+    return ""
+  elseif &modified
+    return "+"
+  elseif &modifiable
+    return ""
+  else
+    return ""
+  endif
+endfunction
+
+function! LightLineReadonly()
+  if &filetype == "help"
+    return ""
+  elseif &readonly
+    return "×"
+  else
+    return ""
+  endif
+endfunction
+
+function! LightLineFugitive()
+  return exists('*fugitive#head') ? fugitive#head() : ''
+endfunction
+
+function! LightLineFilename()
+  return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
+       \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
+       \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
+endfunction
 
 
 let g:EasyMotion_smartcase = 1
@@ -58,9 +96,9 @@ map   <Leader>k   <Plug>(easymotion-k)
 map   /           <Plug>(easymotion-sn)
 omap  /           <Plug>(easymotion-tn)
 
-"|------------------------------------------------------------
-"| SYNTAX COLOURS
-"|------------------------------------------------------------
+"///////////////////////////////////////////////////////////
+"| SYNTAX
+"\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 hi Comment    ctermfg=16
 hi Error      ctermfg=0 ctermbg=18

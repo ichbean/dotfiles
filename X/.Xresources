@@ -53,5 +53,7 @@ rofi.bc:               #063289
 *color17 : #B6AD9A
 *color18 : #D22B09
 *color19 : #D3DCE9
-*color20 : #E4EAF2
-*color21 : #9EB8EB
+! lightline insert mode complementary colours
+*color20 : #895D06
+*color21 : #BD994D
+*color22 : #CBAE72

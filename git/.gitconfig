@@ -1,8 +1,11 @@
 [user]
-	name = ichbean
-	email = ichbean@gmail.com
+  name  = ichbean
+  email = ichbean@gmail.com
 [core]
-	editor = nvim
+  editor = nvim
 [credential "https://github.com"]
-	helper = cache
+  helper   = cache
+  username = ichbean
+[credential "https://gitlab.com"]
+  helper   = cache
   username = ichbean

@@ -10,7 +10,7 @@ set clipboard+=unnamedplus
 set noshowmode
 filetype off
 
-
+noremap <F4>    :!php %<CR>
 noremap <F5>    :w<CR>
 imap    <C-j>   <plug>(emmet-move-next)
 imap    <C-k>   <plug>(emmet-move-prev)

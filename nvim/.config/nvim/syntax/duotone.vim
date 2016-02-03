@@ -3,7 +3,7 @@ hi Error      ctermfg=0 ctermbg=18
 hi Identifier ctermfg=1
 hi LineNr     ctermfg=17
 hi Normal     ctermfg=7
-hi Operator   ctermfg=17
+hi Operator   ctermfg=1
 hi PreProc    ctermfg=4
 hi Statement  ctermfg=6
 hi Function   ctermfg=4

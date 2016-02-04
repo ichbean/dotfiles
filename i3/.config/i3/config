@@ -14,7 +14,7 @@ set $run Mod1+Shift
 
 
 # Autostart
-exec termite
+exec urxvt
 #exec feh --bg-scale ~/Pictures/wallpaper.png
 exec hsetroot -solid "#FAF8F5"
 

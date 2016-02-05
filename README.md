@@ -1,3 +1,1 @@
-# dotfiles
-#### i3wm with colours inspired (or shamelessly stolen) by [simurai's atom duotone theme](https://atom.io/themes/duotone-light-syntax)
-![clean](https://cloud.githubusercontent.com/assets/16004620/11635402/2fd17496-9d1f-11e5-9983-d5bb176244fe.png)
+![riceterm](https://cloud.githubusercontent.com/assets/16004620/12848995/bb4d3886-cc25-11e5-83e2-5cee20f4391b.png)

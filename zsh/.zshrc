@@ -19,14 +19,14 @@ prompt pure
 
 fpath=( "$HOME/.zfunctions" $fpath )
 
-alias ls='ls --color=auto '
-alias cp='cp -v '
-alias mv='mv -v '
-alias install='sudo pacman -S '
-alias aur='pacaur -y '
-alias upgrade='sudo pacman -Syu && pacaur -u'
-alias search='pacaur -Ss '
-alias remove='sudo pacman -Rs '
+alias ls='ls --quoting-style=literal --color=auto'
+alias cp='cp -v'
+alias mv='mv -v'
+alias install='sudo pacman -S'
+alias aur='pacaur -y'
+alias upgrade='pacaur -Syu'
+alias search='pacaur -Ss'
+alias remove='sudo pacman -Rs'
 #todo.txt
 alias t="todo.sh -P"
 

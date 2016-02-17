@@ -1,6 +1,8 @@
 [user]
   name  = ichbean
   email = ichbean@gmail.com
+[push]
+	default = simple
 [core]
   editor = nvim
 [credential "https://github.com"]

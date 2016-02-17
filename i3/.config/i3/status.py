@@ -11,7 +11,7 @@ status.register("clock",
 status.register("battery",
         format="{percentage:.0f}%",
         alert=True,
-        alert_percentage=15,
+        alert_percentage=5,
         charging_color="#063289",
         full_color="#063289",
         status={

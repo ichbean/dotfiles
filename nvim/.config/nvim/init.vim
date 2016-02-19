@@ -10,13 +10,23 @@ set clipboard+=unnamedplus
 set noshowmode
 filetype off
 
-"Basic calculator with C-A in the Insert mode
+
+"Basic insert mode calculator
 ino <C-A> <C-O>yiW<End>=<C-R>=<C-R>0<CR>
-noremap <F4>    :!php %<CR>
-noremap <F5>    :w<CR>
+
+nnoremap <F4>   :!php %<CR>
+nnoremap <F5>   :w<CR>
+nnoremap <silent> <esc>  :noh<return>
+nnoremap <cr>   :
+nnoremap c*     *Ncgn
+nnoremap c#     #NcgN
+"nnoremap cg*   g*Ncgn
+"nnoremap cg#   g#NcgN
+
 imap    <C-j>   <plug>(emmet-move-next)
 imap    <C-k>   <plug>(emmet-move-prev)
 autocmd FileType html,css,scss imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+
 cmap w!! w !sudo tee > /dev/null %
 
 

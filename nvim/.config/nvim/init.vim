@@ -12,6 +12,8 @@ filetype off
 
 inoremap  {     {<CR>}<Esc>ko
 inoremap  (     ()<Esc>i
+"Basic calculator with C-A in the Insert mode
+ino <C-A> <C-O>yiW<End>=<C-R>=<C-R>0<CR>
 noremap <F4>    :!php %<CR>
 noremap <F5>    :w<CR>
 imap    <C-j>   <plug>(emmet-move-next)

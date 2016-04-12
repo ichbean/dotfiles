@@ -10,8 +10,6 @@ set clipboard+=unnamedplus
 set noshowmode
 filetype off
 
-inoremap  {     {<CR>}<Esc>ko
-inoremap  (     ()<Esc>i
 "Basic calculator with C-A in the Insert mode
 ino <C-A> <C-O>yiW<End>=<C-R>=<C-R>0<CR>
 noremap <F4>    :!php %<CR>
@@ -37,6 +35,7 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'scrooloose/syntastic'
 Plugin 'mattn/emmet-vim'
 Plugin 'godlygeek/tabular'
+Plugin 'jiangmiao/auto-pairs'
 "Plugin 'scrooloose/nerdtree'
 
 call vundle#end()

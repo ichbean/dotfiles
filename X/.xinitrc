@@ -41,6 +41,7 @@ xinput set-prop "TPPS/2 IBM TrackPoint" "Device Accel Constant Deceleration" 0.7
 setxkbmap -option "caps:swapescape"
 setxkbmap dvorak
 
+xset -b &
 compton -b --backend glx --vsync opengl &
 xsettingsd &
 exec i3

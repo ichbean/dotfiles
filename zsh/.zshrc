@@ -31,4 +31,4 @@ alias remove='sudo pacman -Rs'
 alias t="todo.sh -P"
 
 #FZF
-. /etc/profile.d/fzf.zsh
+. /usr/share/fzf/key-bindings.zsh

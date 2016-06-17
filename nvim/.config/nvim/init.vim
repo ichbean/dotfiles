@@ -14,6 +14,7 @@ filetype off
 "Basic insert mode calculator
 ino <C-A> <C-O>yiW<End>=<C-R>=<C-R>0<CR>
 
+map      <SPACE>  <leader>
 nnoremap <F4>   :!php %<CR>
 nnoremap <F5>   :w<CR>
 nnoremap <silent> <esc>  :noh<return>
@@ -22,6 +23,7 @@ nnoremap c*     *Ncgn
 nnoremap c#     #NcgN
 "nnoremap cg*   g*Ncgn
 "nnoremap cg#   g#NcgN
+
 
 imap    <C-j>   <plug>(emmet-move-next)
 imap    <C-k>   <plug>(emmet-move-prev)
@@ -45,6 +47,7 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'scrooloose/syntastic'
 Plugin 'mattn/emmet-vim'
 Plugin 'godlygeek/tabular'
+Plugin 'dhruvasagar/vim-table-mode'
 Plugin 'jiangmiao/auto-pairs'
 "Plugin 'scrooloose/nerdtree'
 
@@ -100,12 +103,23 @@ function! LightLineFilename()
        \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
 endfunction
 
-
 let g:EasyMotion_smartcase = 1
 
-map   <Leader>    <Plug>(easymotion-prefix)
-nmap  <Space>     <Plug>(easymotion-s)
-map   <Leader>j   <Plug>(easymotion-j)
-map   <Leader>k   <Plug>(easymotion-k)
+"map   <Leader>    <Plug>(easymotion-prefix)
+"Move to char
+nmap  <Leader><Space>     <Plug>(easymotion-s)
+" <Leader>f{char} to move to {char}
+map  <Leader>f <Plug>(easymotion-bd-f)
+nmap <Leader>f <Plug>(easymotion-overwin-f)
+" Move to line
+map <Leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader>L <Plug>(easymotion-overwin-line)
+" Move to word
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
+"Move up/down
+map   <Leader>j           <Plug>(easymotion-j)
+map   <Leader>k           <Plug>(easymotion-k)
+"Easy search
 map   /           <Plug>(easymotion-sn)
 omap  /           <Plug>(easymotion-tn)

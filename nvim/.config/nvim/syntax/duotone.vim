@@ -33,4 +33,4 @@ hi VitalOverCommandLineCursor cterm=none ctermfg=none ctermbg=none
 hi EasyMotionTargetDefault ctermfg=18
 hi EasyMotionShadeDefault ctermfg=17
 hi EasyMotionIncSearchDefault ctermfg=2
-hi EasyMotionIncCursorDefault ctermfg=0 ctermbg=21
+hi EasyMotionIncCursorDefault ctermfg=0 ctermbg=23

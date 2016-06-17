@@ -27,6 +27,7 @@ alias aur='pacaur -y'
 alias upgrade='pacaur -Syu'
 alias search='pacaur -Ss'
 alias remove='sudo pacman -Rs'
+alias scan='scanimage --device niash:libusb:001:006 --format=tiff > '
 #todo.txt
 alias t="todo.sh -P"
 

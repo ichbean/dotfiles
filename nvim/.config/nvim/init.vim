@@ -62,8 +62,8 @@ filetype plugin indent on
 let g:lightline = {
     \ 'colorscheme': 'duotone',
     \ 'active': {
-    \   'left': [[ 'mode' ], [ 'filename', 'fugitive' ]],
-    \   'right': [ [ 'lineinfo' ], ['percent'], [ 'fileencoding', 'filetype' ]] },
+    \   'left': [[ 'mode', 'paste' ], [ 'filename' ], [ 'fugitive' ]],
+    \   'right': [[ 'lineinfo' ], ['percent'], [ 'fileencoding', 'filetype' ]] },
     \ 'component_function': {
     \   'fugitive': 'LightLineFugitive',
     \   'modified': 'LightLineModified',

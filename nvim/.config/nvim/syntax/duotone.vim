@@ -20,6 +20,7 @@ hi StatusLineNC cterm=none
 hi Search     ctermfg=0 ctermbg=6 
 hi MatchParen ctermfg=0 ctermbg=19
 hi ErrorMsg   ctermbg=0 ctermfg=18 cterm=bold
+hi Pmenu      ctermbg=21
 " Language specific colours
 hi htmlArg            ctermfg=1
 hi htmlStatement      ctermfg=7

@@ -1,5 +1,7 @@
 fonts.dtd
 .netrwhist
+nvim/.config/nvim/.init.vim-rplugin\~
+nvim/.config/nvim/autoload/*
 nvim/.config/nvim/bundle/*
 !nvim/.config/nvim/bundle/lightline.vim
 nvim/.config/nvim/bundle/lightline.vim/*

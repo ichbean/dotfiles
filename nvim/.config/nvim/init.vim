@@ -7,8 +7,6 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 set clipboard+=unnamedplus
-set noshowmode
-filetype off
 
 
 "Basic insert mode calculator
@@ -24,36 +22,29 @@ nnoremap c#     #NcgN
 "nnoremap cg*   g*Ncgn
 "nnoremap cg#   g#NcgN
 
-
 imap    <C-j>   <plug>(emmet-move-next)
 imap    <C-k>   <plug>(emmet-move-prev)
 autocmd FileType html,css,scss imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
-
 cmap w!! w !sudo tee > /dev/null %
 
 
-"///////////////////////////////////////////////////////////
-"| VUNDLE
-"\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+call plug#begin('~/.config/nvim/bundle')
+Plug 'itchyny/lightline.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'easymotion/vim-easymotion'
+Plug 'scrooloose/syntastic'
+Plug 'mattn/emmet-vim'
+Plug 'godlygeek/tabular'
+Plug 'dhruvasagar/vim-table-mode'
+Plug 'jiangmiao/auto-pairs'
+Plug 'Shougo/deoplete.nvim'
+"Plug 'shawncplus/phpcomplete.vim'
+"Plug 'scrooloose/nerdtree'
+call plug#end()
 
-set rtp+=~/.config/nvim/bundle/Vundle.vim
-call vundle#begin('~/.config/nvim/bundle')
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'itchyny/lightline.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'scrooloose/syntastic'
-Plugin 'mattn/emmet-vim'
-Plugin 'godlygeek/tabular'
-Plugin 'dhruvasagar/vim-table-mode'
-Plugin 'jiangmiao/auto-pairs'
-"Plugin 'scrooloose/nerdtree'
-
-call vundle#end()
-filetype plugin indent on
-
+let g:deoplete#enable_at_startup = 1
 
 "///////////////////////////////////////////////////////////
 "| LIGHTLINE

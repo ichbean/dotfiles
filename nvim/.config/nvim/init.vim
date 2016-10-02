@@ -1,33 +1,53 @@
 syntax on
 set number
+set background=light
 set syntax=duotone
 set ignorecase
 set encoding=utf8
-set tabstop=2
-set shiftwidth=2
-set expandtab
 set clipboard+=unnamedplus
+set noshowmode
+" Tabs
+set tabstop=8
+set shiftwidth=3
+set noexpandtab
 
 
-"Basic insert mode calculator
-ino <C-A> <C-O>yiW<End>=<C-R>=<C-R>0<CR>
+" Basic calculator (Ctrl-A)
+ino <c-a> <c-o>yiW<end>=<c-r>=<c-r>0<cr>
 
-map      <SPACE>  <leader>
-nnoremap <F4>   :!php %<CR>
-nnoremap <F5>   :w<CR>
+" Bind leader to <Space>
+map <space> <leader>
+
+" Save file <F5>
+nnoremap <F5> :w<cr>
+imap	<F5>	<esc>:w<cr>i
+" If PHP save file and run (F5)
+autocmd FileType php nnoremap <F5>  :w!<cr>:!php %<cr>
+autocmd FileType php imap <F5>  :w!<cr>:!php %<cr>
+
+" Clear highlighting with (Esc)
 nnoremap <silent> <esc>  :noh<return>
-nnoremap <cr>   :
+
+" Start command mode (Enter)
+nnoremap <cr>	:
+
+" Replace word occurrences
 nnoremap c*     *Ncgn
 nnoremap c#     #NcgN
-"nnoremap cg*   g*Ncgn
-"nnoremap cg#   g#NcgN
+nnoremap cg*   g*Ncgn
+nnoremap cg#   g#NcgN
 
-imap    <C-j>   <plug>(emmet-move-next)
-imap    <C-k>   <plug>(emmet-move-prev)
-autocmd FileType html,css,scss imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+" Force write
 cmap w!! w !sudo tee > /dev/null %
 
+" Emmet previous/next move
+imap    <c-j>   <plug>(emmet-move-next)
+imap    <c-k>   <plug>(emmet-move-prev)
 
+"Emmet Tab completion for html, css and scss files
+autocmd FileType html,css,scss imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+
+" Vim-plug
 call plug#begin('~/.config/nvim/bundle')
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
@@ -38,18 +58,12 @@ Plug 'mattn/emmet-vim'
 Plug 'godlygeek/tabular'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'jiangmiao/auto-pairs'
-Plug 'Shougo/deoplete.nvim'
-"Plug 'shawncplus/phpcomplete.vim'
-"Plug 'scrooloose/nerdtree'
+Plug 'metakirby5/codi.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'itchyny/calendar.vim'
 call plug#end()
 
-
-let g:deoplete#enable_at_startup = 1
-
-"///////////////////////////////////////////////////////////
-"| LIGHTLINE
-"\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-
+" Lightline
 let g:lightline = {
     \ 'colorscheme': 'duotone',
     \ 'active': {
@@ -94,6 +108,7 @@ function! LightLineFilename()
        \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
 endfunction
 
+" Easymotion
 let g:EasyMotion_smartcase = 1
 
 "map   <Leader>    <Plug>(easymotion-prefix)

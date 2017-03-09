@@ -1,7 +1,7 @@
 syntax on
 set number
-set background=light
-set syntax=duotone
+set background=dark
+set syntax=solarized
 set ignorecase
 set encoding=utf8
 set clipboard+=unnamedplus
@@ -20,7 +20,7 @@ map <space> <leader>
 
 " Save file <F5>
 nnoremap <F5> :w<cr>
-imap	<F5>	<esc>:w<cr>i
+imap	<F5>	<esc>:w<cr>a
 " If PHP save file and run (F5)
 autocmd FileType php nnoremap <F5>  :w!<cr>:!php %<cr>
 autocmd FileType php imap <F5>  :w!<cr>:!php %<cr>

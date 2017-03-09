@@ -2,12 +2,13 @@ HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 unsetopt beep
-bindkey -v
 
-zstyle :compinstall filename '/home/aleksei/.zshrc'
+export KEYTIMEOUT=1
+
+zstyle :compinstall filename "$HOME/.zshrc"
 
 eval $(dircolors ~/.dircolors)
-# Zsh to use the same colors as ls
+# Use the same colors as ls
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 autoload -Uz compinit && compinit
@@ -22,14 +23,23 @@ fpath=( "$HOME/.zfunctions" $fpath )
 alias ls='ls --quoting-style=literal --color=auto'
 alias cp='cp -v'
 alias mv='mv -v'
-alias install='sudo pacman -S'
-alias aur='pacaur -y'
+alias install='pacaur -S'
 alias upgrade='pacaur -Syu'
 alias search='pacaur -Ss'
-alias remove='sudo pacman -Rs'
+alias remove='sudo pacaur -Rs'
 alias scan='scanimage --device niash:libusb:001:006 --format=tiff > '
 #todo.txt
 alias t="todo.sh -P"
 
 #FZF
 . /usr/share/fzf/key-bindings.zsh
+
+bindkey '^A' beginning-of-line
+bindkey '^E' end-of-line
+bindkey "^?" backward-delete-char
+bindkey "^W" backward-kill-word 
+bindkey "^H" backward-delete-char
+bindkey "^U" backward-kill-line
+
+
+PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"

@@ -11,39 +11,29 @@ clickable_url       = true
 cursor_blink        = off
 
 [colors]
-foreground = #2D2006
-background = #FAF8F5
-background = rgba(250, 248, 245, 0.9)
-cursor     = #9EB8EB
-cursor_foreground = #FAF8F5
-highlight  = #B6AD9A
+foreground = #839496
+foreground_bold = #eee8d5
+#foreground_dim = #888888
+background = #002b36
+#cursor = #93a1a1
 
-color0  = #FAF8F5
-color1  = #896724
-color2  = #4D71BD
-color3  = #977D4A
-color4  = #063289
-color5  = #B29762
-color6  = #728FCB
-color7  = #2D2006
+# if unset, will reverse foreground and background
+#highlight = #839496
 
-color8  = #2D2006
-color9  = #896724
-color10 = #4D71BD
-color11 = #977D4A
-color12 = #063289
-color13 = #B29762
-color14 = #728FCB
-color15 = #2D2006
-
-color16 = #AEB1B7
-color17 = #B6AD9A
-color18 = #D22B09
-color19 = #D3DCE9
-color20 = #E4EAF2
-color21 = #9EB8EB
-color20 = #895D06
-color21 = #BD994D
-color22 = #CBAE72
-color23 = #9EB8EB
-
+# colors from color0 to color254 can be set
+color0 = #073642
+color1 = #dc322f
+color2 = #859900
+color3 = #b58900
+color4 = #268bd2
+color5 = #d33682
+color6 = #2aa198
+color7 = #eee8d5
+color8 = #002b36
+color9 = #cb4b16
+color10 = #586e75
+color11 = #657b83
+color12 = #839496
+color13 = #6c71c4
+color14 = #93a1a1
+color15 = #fdf6e3

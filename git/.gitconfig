@@ -2,7 +2,7 @@
   name  = ichbean
   email = ichbean@gmail.com
 [push]
-	default = simple
+  default = simple
 [core]
   editor = nvim
 [credential "https://github.com"]

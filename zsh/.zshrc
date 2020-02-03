@@ -3,36 +3,36 @@ HISTSIZE=1000
 SAVEHIST=1000
 unsetopt beep
 
+# Quicker Vi-mode switch
 export KEYTIMEOUT=1
 
-zstyle :compinstall filename "$HOME/.zshrc"
+# Auto-completion
+autoload -Uz compinit
+compinit
 
-eval $(dircolors ~/.dircolors)
-# Use the same colors as ls
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-
-autoload -Uz compinit && compinit
-autoload -U promptinit && promptinit
+# Prompt
+fpath+=("$HOME/.config/pure")
+autoload -U promptinit; promptinit
 PURE_PROMPT_SYMBOL=">"
 PURE_GIT_DOWN_ARROW="↓"
 PURE_GIT_UP_ARROW="↑"
 prompt pure
 
-fpath=( "$HOME/.zfunctions" $fpath )
+zstyle :compinstall filename "$HOME/.zshrc"
+
+#eval $(dircolors ~/.dircolors)
+# Use the same colors as ls
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
+fpath=("$HOME/.zfunctions" $fpath)
 
 alias ls='ls --quoting-style=literal --color=auto'
 alias cp='cp -v'
 alias mv='mv -v'
-alias install='pacaur -S'
-alias upgrade='pacaur -Syu'
-alias search='pacaur -Ss'
-alias remove='sudo pacaur -Rs'
-alias scan='scanimage --device niash:libusb:001:006 --format=tiff > '
-#todo.txt
-alias t="todo.sh -P"
+alias t="todo.sh -P" #todo.txt
 
 #FZF
-. /usr/share/fzf/key-bindings.zsh
+#. /usr/share/fzf/key-bindings.zsh
 
 bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
@@ -41,5 +41,15 @@ bindkey "^W" backward-kill-word
 bindkey "^H" backward-delete-char
 bindkey "^U" backward-kill-line
 
+# Change cursor type for current mode
+function zle-keymap-select zle-line-init zle-line-finish
+{
+  case $KEYMAP in
+      vicmd)      print -n '\033[1 q';; # block cursor
+      viins|main) print -n '\033[5 q';; # line cursor
+  esac
+}
 
-PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+zle -N zle-line-init
+zle -N zle-line-finish
+zle -N zle-keymap-select

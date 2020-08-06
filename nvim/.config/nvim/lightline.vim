@@ -6,7 +6,7 @@ let g:lightline = {
     \   'left': [[ 'mode', 'paste' ], [ 'filename' ], [ 'fugitive' ]],
     \   'right': [[ 'lineinfo' ], ['percent'], [ 'fileencoding', 'filetype' ]] },
     \ 'component_function': {
-    \   'fugitive': 'LightLineFugitive',
+    \   'fugitive': 'LightlineFugitive',
     \   'modified': 'LightLineModified',
     \   'readonly': 'LightLineReadonly',
     \   'filename': 'LightLineFilename' }
@@ -38,4 +38,12 @@ function! LightLineFilename()
  return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
       \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
       \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
+endfunction
+
+function! LightlineFugitive()
+    if exists('*FugitiveHead')
+        let branch = FugitiveHead()
+        return branch !=# '' ? ''.branch : ''
+    endif
+    return ''
 endfunction

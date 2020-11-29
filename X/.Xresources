@@ -20,7 +20,7 @@ URxvt*.highlightTextColor:  #FAF8F5
 
 rofi.bw:               10
 rofi.lines:            5
-rofi.width:            30
+rofi.width:            48
 rofi.line-margin:      0
 rofi.font:             mono 21
 rofi.hide-scrollbar:   true

@@ -39,9 +39,11 @@ xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Axes" 6 7 4 5
 xinput set-prop "TPPS/2 IBM TrackPoint" "Device Accel Constant Deceleration" 0.75
 
 setxkbmap -option "caps:swapescape"
-setxkbmap dvorak
+setxkbmap -layout "dvorak,pl" -variant ",ru_phonetic_dvorak"
+setxkbmap -option 'grp:win_space_toggle'
 
-xset -b &
-compton -b --backend glx --vsync opengl &
-xsettingsd &
+export QT_QPA_PLATFORMTHEME=qt5ct
+
+# xset -b &
+picom --experimental-backends &
 exec i3

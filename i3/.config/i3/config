@@ -1,42 +1,56 @@
 hide_edge_borders both
 new_window pixel 0
 new_float pixel 3
-
+smart_gaps on
+gaps inner 8
 
 # Tags
 set $tag1 1:TERMINAL
 set $tag2 2:WWW
-set $tag3 3:IRC
+set $tag3 3
 set $tag4 4
 set $tag5 5:MUSIC
 
-set $run Mod1+Shift
+set $mod Mod4
 
 
 # Autostart
-exec urxvt
-#exec feh --bg-scale ~/Pictures/wallpaper.png
-exec hsetroot -solid "#FAF8F5"
+exec i3-sensible-terminal
+exec --no-startup-id feh --bg-scale ~/Pictures/Wallpaper.jpg
 
 # Workspace assignments
-assign [class="^Termite$"]  $tag1
-assign [class="^Urxvt$"]    $tag1
-assign [class="^Firefox$"]  $tag2
-assign [class="^cmus$"]     $tag5
+
+for_window [class="^kitty$"] move container to workspace $tag1, focus
+for_window [class="^Termite$"] move container to workspace $tag1, focus
+for_window [class="^Urxvt$"] move container to workspace $tag1, focus
+for_window [class="^Firefox$"] move container to workspace $tag2, focus
+for_window [class="^Chromium$"] move container to workspace $tag2, focus
+for_window [class="^cmus$"] move container to workspace $tag5, focus
 
 
 # Bindings
-bindsym Mod1+r exec rofi -show run
-bindsym Mod1+Return exec i3-sensible-terminal
-bindsym $run+m exec termite -e cmus --class=cmus --title=cmus
+bindsym $mod+r exec rofi -show run
+bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Shift+m exec kitty --class cmus sh -c cmus
+bindsym $mod+Tab workspace back_and_forth
+
+
+# FN keys
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5% && $refresh_i3status
+bindsym XF68AudioMicMute exec pactl set-source-mute 1 toggle
+bindsym XF86MonBrightnessUp exec brightnessctl --device intel_backlight set +5%
+bindsym XF86MonBrightnessDown exec brightnessctl --device intel_backlight set 5%-
 
 # Window settings
-for_window [class="^cmus$"] floating enable, border pixel 5
+for_window [class="^cmus$"] floating enable, border pixel 2, resize set 960 620, move position center
 for_window [class="^mpv$"] fullscreen enable
 
 
 # Font for window titles. Will also be used by the bar unless a different font
-font pango:PragmataPro 13
+font pango:Fira Code 13
 
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
@@ -45,101 +59,101 @@ set $down j
 set $up k
 set $right l
 
-# use Mouse+Mod1 to drag floating windows to their wanted position
-floating_modifier Mod1
+# use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
 
 # kill focused window
-bindsym Mod1+Shift+q kill
+bindsym $mod+Shift+q kill
 
 # start program launcher
 
 # change focus
-bindsym Mod1+$left focus left
-bindsym Mod1+$down focus down
-bindsym Mod1+$up focus up
-bindsym Mod1+$right focus right
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
 
 # alternatively, you can use the cursor keys:
-bindsym Mod1+Left focus left
-bindsym Mod1+Down focus down
-bindsym Mod1+Up focus up
-bindsym Mod1+Right focus right
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
 
 # move focused window
-bindsym Mod1+Shift+$left move left
-bindsym Mod1+Shift+$down move down
-bindsym Mod1+Shift+$up move up
-bindsym Mod1+Shift+$right move right
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
 
 # alternatively, you can use the cursor keys:
-bindsym Mod1+Shift+Left move left
-bindsym Mod1+Shift+Down move down
-bindsym Mod1+Shift+Up move up
-bindsym Mod1+Shift+Right move right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-#bindsym Mod1+h split h
+#bindsym $mod+h split h
 
 # split in vertical orientation
-#bindsym Mod1+v split v
+#bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-bindsym Mod1+f fullscreen toggle
+bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym Mod1+s layout stacking
-bindsym Mod1+w layout tabbed
-bindsym Mod1+e layout toggle split
+# bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym Mod1+Shift+space floating toggle
+bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym Mod1+space focus mode_toggle
+bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym Mod1+a focus parent
+bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym Mod1+d focus child
+#bindsym $mod+d focus child
 
 # move the currently focused window to the scratchpad
-bindsym Mod1+Shift+minus move scratchpad
+bindsym $mod+Shift+minus move scratchpad
 
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
-bindsym Mod1+minus scratchpad show
+bindsym $mod+minus scratchpad show
 
 # switch to workspace
-bindsym Mod1+1 workspace $tag1
-bindsym Mod1+2 workspace $tag2
-bindsym Mod1+3 workspace $tag3
-bindsym Mod1+4 workspace $tag4
-bindsym Mod1+5 workspace $tag5
-bindsym Mod1+6 workspace 6
-bindsym Mod1+7 workspace 7
-bindsym Mod1+8 workspace 8
-bindsym Mod1+9 workspace 9
-bindsym Mod1+0 workspace 10
+bindsym $mod+1 workspace $tag1
+bindsym $mod+2 workspace $tag2
+bindsym $mod+3 workspace $tag3
+bindsym $mod+4 workspace $tag4
+bindsym $mod+5 workspace $tag5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym Mod1+Shift+1 move container to workspace $tag1
-bindsym Mod1+Shift+2 move container to workspace $tag2
-bindsym Mod1+Shift+3 move container to workspace $tag3
-bindsym Mod1+Shift+4 move container to workspace $tag4
-bindsym Mod1+Shift+5 move container to workspace $tag5
-bindsym Mod1+Shift+6 move container to workspace 6
-bindsym Mod1+Shift+7 move container to workspace 7
-bindsym Mod1+Shift+8 move container to workspace 8
-bindsym Mod1+Shift+9 move container to workspace 9
-bindsym Mod1+Shift+0 move container to workspace 10
+bindsym $mod+Shift+1 move container to workspace $tag1
+bindsym $mod+Shift+2 move container to workspace $tag2
+bindsym $mod+Shift+3 move container to workspace $tag3
+bindsym $mod+Shift+4 move container to workspace $tag4
+bindsym $mod+Shift+5 move container to workspace $tag5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
 
 # reload the configuration file
-bindsym Mod1+Shift+c reload
+bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym Mod1+Shift+r restart
+bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym Mod1+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -165,7 +179,7 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-#bindsym Mod1+r mode "resize"
+#bindsym $mod+s mode "resize"
 
 
 # Colours
@@ -182,16 +196,20 @@ client.background       #FAF8F5
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        position top
-        status_command python ~/.config/i3/status.py
-        strip_workspace_numbers yes
+	height 34
+	mode hide
+	hidden_state hide
+	modifier $mod
+    position top
+    strip_workspace_numbers yes
+    status_command py3status -b -c ~/.config/i3/status
 
-        colors {
-          background  #FAF8F5
-          statusline  #063289
-          separator   #728FCB 
-          focused_workspace   #063289 #063289 #FAF8F5
-          inactive_workspace  #728FCB #728FCB #FAF8F5
-          urgent_workspace    #D22B09 #D22B09 #FAF8F5
-          }
+    colors {
+        background  #FAF8F5
+        statusline  #063289
+        separator   #728FCB 
+        focused_workspace   #063289 #063289 #FAF8F5
+        inactive_workspace  #728FCB #728FCB #FAF8F5
+        urgent_workspace    #D22B09 #D22B09 #FAF8F5
+    }
 }

@@ -31,8 +31,26 @@ alias cp='cp -v'
 alias mv='mv -v'
 alias t="todo.sh -P" #todo.txt
 
+function rec() {
+    if [[ $1 == "SU" ]] then
+        local site=https://showup.tv/
+    elif [[ $1 == "MFC" ]] then
+        local site=https://myfreecams.com/#
+    elif [[ $1 == "CB" ]] then
+        local site=https://chaturbate.com/
+    elif [[ $1 == "BC" ]] then
+        local site=https://bongacams.com/
+    fi
+
+    while true
+    do
+        streamlink -o ~/Videos/.Camwhores/"$2"_"$1"_"$(date +%y%m%d%H%M)".ts "$site""$2"
+        sleep 60
+    done
+}
+
 #FZF
-#. /usr/share/fzf/key-bindings.zsh
+. /usr/share/fzf/key-bindings.zsh
 
 bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
@@ -53,3 +71,6 @@ function zle-keymap-select zle-line-init zle-line-finish
 zle -N zle-line-init
 zle -N zle-line-finish
 zle -N zle-keymap-select
+
+# Created by `userpath` on 2020-12-01 15:31:20
+export PATH="$PATH:/home/ichbean/.local/bin"

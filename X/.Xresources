@@ -18,18 +18,18 @@ URxvt*.cursorColor:         #9EB8EB
 URxvt*.highlightColor:      #B6AD9A
 URxvt*.highlightTextColor:  #FAF8F5
 
-rofi.bw:               10
-rofi.lines:            5
-rofi.width:            48
-rofi.line-margin:      0
-rofi.font:             mono 21
-rofi.hide-scrollbar:   true
-rofi.separator-style:  none
-rofi.bg:               #FAF8F5
-rofi.fg:               #063289
-rofi.hlbg:             #FAF8F5
-rofi.hlfg:             #728FCB
-rofi.bc:               #063289
+# rofi.bw:               10
+# rofi.lines:            5
+# rofi.width:            48
+# rofi.line-margin:      0
+# rofi.font:             mono 21
+# rofi.hide-scrollbar:   true
+# rofi.separator-style:  none
+# rofi.bg:               #FAF8F5
+# rofi.fg:               #063289
+# rofi.hlbg:             #FAF8F5
+# rofi.hlfg:             #728FCB
+# rofi.bc:               #063289
 
 *color0  : #FAF8F5
 *color1  : #896724

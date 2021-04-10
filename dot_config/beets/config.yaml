@@ -1,0 +1,23 @@
+directory: ~/Music
+library: ~/Music/.library.db
+
+ui:
+    color: yes
+
+import:
+    move: yes
+
+plugins: convert lastgenre fetchart zero
+
+convert:
+    auto: yes
+    embed: no
+    never_convert_lossy_files: yes
+    formats:
+        mp3: ffmpeg -i $source -y -ab 320k $dest
+
+zero:
+    fields: comments images
+
+paths:
+    default: $albumartist/$year - $album/$track. $title

@@ -1,5 +1,6 @@
 export EDITOR="nvim"
 export BROWSER="chromium"
+export LESS=-R
 
 export TODOTXT_DEFAULT_ACTION=ls
 export PIPENV_VENV_IN_PROJECT=1

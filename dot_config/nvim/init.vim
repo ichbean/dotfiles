@@ -11,6 +11,7 @@ Plug 'justinmk/vim-sneak'
 Plug 'kassio/neoterm'
 Plug 'lifepillar/vim-mucomplete'
 Plug 'lifepillar/vim-solarized8'
+Plug 'arcticicestudio/nord-vim'
 Plug 'mattn/emmet-vim'
 Plug 'metakirby5/codi.vim'
 Plug 'scrooloose/syntastic'
@@ -46,8 +47,9 @@ set expandtab
 set splitbelow
 set splitright
 set termguicolors
-set background=light
-colorscheme solarized8_flat
+set background=dark
+" colorscheme solarized8_flat
+colorscheme nord
 filetype plugin on
 
 " KEYS & MACROS

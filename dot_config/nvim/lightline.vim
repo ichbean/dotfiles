@@ -1,7 +1,7 @@
 " LIGHTLINE
 " ----------------------------------------------------
 let g:lightline = {
-    \ 'colorscheme': 'solarized',
+    \ 'colorscheme': 'nord',
     \ 'active': {
     \   'left': [[ 'mode', 'paste' ], [ 'filename' ], [ 'fugitive' ]],
     \   'right': [[ 'lineinfo' ], ['percent'], [ 'fileencoding', 'filetype' ]] },

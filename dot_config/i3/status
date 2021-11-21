@@ -10,24 +10,25 @@ battery_level {
     battery_id = 1
     charging_character = '+'
     format = 'BAT:{percent}%'
-    color_good = '#063289'
-    color_bad = '#063289'
-    color_degraded = '#063289'
-    color_charging = '#063289'
+    color_good = '#D8DEE9'
+    color_bad = '#D8DEE9'
+    color_degraded = '#D8DEE9'
+    color_charging = '#A3BE8C'
     notification = true
     notify_low_level = true
 }
 
 time {
-    format = '%A %-d, %H:%M '
+    format = '%H:%M '
 }
 
 volume_status {
     format = 'VOL:{percentage}%'
     format_muted = 'VOL:{percentage}%'
+    color_muted = '#BF616A'
     thresholds = [
-        (0, "#063289"),
-        (100, "#063289")
+        (0, "#D8DEE9"),
+        (100, "#D8DEE9")
     ]
 }
 

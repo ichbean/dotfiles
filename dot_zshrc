@@ -31,18 +31,6 @@ autoload rec vconvert
 alias ls='ls --quoting-style=literal --color=auto'
 alias cp='cp -v'
 alias mv='mv -v'
-alias t="todo.sh -P" #todo.txt
-alias dot='git --git-dir=$HOME/Projects/dotfiles/ --work-tree=$HOME'
-alias d='dirs -v | head -10'
-alias 1='cd -'
-alias 2='~2'
-alias 3='~3'
-alias 4='~4'
-alias 5='~5'
-alias 6='~6'
-alias 7='~7'
-alias 8='~8'
-alias 9='~9'
 
 #FZF
 . /usr/share/fzf/key-bindings.zsh

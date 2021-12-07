@@ -1,13 +1,18 @@
 directory: ~/Music
 library: ~/Music/.library.db
+original_date: yes
+plugins: convert embedart deezer fetchart ftintitle lastgenre scrub zero
+
+#use multiple threads
+threaded: yes
+timeout: 5.0
+verbose: no
 
 ui:
     color: yes
 
 import:
     move: yes
-
-plugins: convert lastgenre fetchart zero
 
 convert:
     auto: yes
@@ -16,8 +21,23 @@ convert:
     formats:
         mp3: ffmpeg -i $source -y -ab 320k $dest
 
+embedart:
+    remove_art_file: yes
+
+fetchart:
+    cover_names: cover front
+    sources:
+        - filesystem
+        - itunes
+        - lastfm
+        - amazon
+        - fanarttv
+
+ftintitle:
+    drop: yes
+
 zero:
-    fields: comments images
+  fields: month day
 
 paths:
     default: $albumartist/$year - $album/$track. $title

@@ -1,7 +1,7 @@
 directory: ~/Music
 library: ~/Music/.library.db
 original_date: yes
-plugins: convert embedart deezer fetchart ftintitle lastgenre scrub zero
+plugins: bandcamp convert embedart deezer fetchart ftintitle lastgenre scrub zero
 
 #use multiple threads
 threaded: yes
@@ -21,20 +21,21 @@ convert:
     formats:
         mp3: ffmpeg -i $source -y -ab 320k $dest
 
+bandcamp:
+    art: yes
+
 embedart:
     remove_art_file: yes
 
 fetchart:
     cover_names: cover front
     sources:
+        - bandcamp
         - filesystem
         - itunes
         - lastfm
         - amazon
         - fanarttv
-
-ftintitle:
-    drop: yes
 
 zero:
   fields: month day

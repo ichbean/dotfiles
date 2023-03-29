@@ -13,7 +13,7 @@ autoload -Uz compinit && compinit
 # Prompt
 fpath+=("$HOME/.config/pure")
 autoload -U promptinit; promptinit
-PURE_PROMPT_SYMBOL=">"
+#PURE_PROMPT_SYMBOL=">"
 PURE_GIT_DOWN_ARROW="↓"
 PURE_GIT_UP_ARROW="↑"
 prompt pure
@@ -25,7 +25,7 @@ zstyle :compinstall filename "$HOME/.zshrc"
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 fpath=("$HOME/.zsh/functions" $fpath)
-autoload rec vconvert
+autoload rec merge
 
 
 alias ls='ls --quoting-style=literal --color=auto'
@@ -57,3 +57,4 @@ zle -N zle-keymap-select
 
 # Created by `userpath` on 2020-12-01 15:31:20
 export PATH="$PATH:/home/ichbean/.local/bin"
+export EDITOR='nvim'

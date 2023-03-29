@@ -1,9 +1,7 @@
-directory: ~/Music
-library: ~/Music/.library.db
+directory: /mnt/data/music
+library: /mnt/data/music/.library.db
 original_date: yes
-plugins: bandcamp convert embedart deezer fetchart ftintitle lastgenre scrub zero
-
-#use multiple threads
+plugins: convert embedart fetchart ftintitle lastgenre scrub zero
 threaded: yes
 timeout: 5.0
 verbose: no
@@ -13,13 +11,6 @@ ui:
 
 import:
     move: yes
-
-convert:
-    auto: yes
-    embed: no
-    never_convert_lossy_files: yes
-    formats:
-        mp3: ffmpeg -i $source -y -ab 320k $dest
 
 bandcamp:
     art: yes
@@ -38,7 +29,8 @@ fetchart:
         - fanarttv
 
 zero:
-  fields: month day
+  fields: month day comments
+  update_database: true
 
 paths:
     default: $albumartist/$year - $album/$track. $title

@@ -7,10 +7,9 @@
 
 window {
     border: 						0px;
-    border-color: 					@ac;
     border-radius: 					0px;
     padding: 						300px;
-    width: 							100%;
+    width: 						100%;
     height: 						100%;
 }
 
@@ -22,8 +21,8 @@ prompt {
 
 textbox-prompt-colon {
     expand: 						false;
-    str: 							" ";
-    margin:							0px 4px 0px 0px;
+    str: 						" ";
+    margin:						0px 4px 0px 0px;
     text-color: 					inherit;
 }
 
@@ -46,24 +45,22 @@ inputbar {
 
 mainbox {
     border: 						0px;
-    border-color: 					@ac;
     padding: 						6;
 }
 
 listview {
-    lines:							5;
+    lines:						5;
     columns:						3;
     fixed-height: 					0;
     border: 						0px;
-    border-color: 					@ac;
     spacing: 						5px;
     scrollbar: 						false;
     padding: 						25px 5px -20px 5px;
 }
 
 element-text, element-icon {
-    background-color: #00000000;
-    text-color:       inherit;
+    background-color: 					#00000000;
+    text-color:       					inherit;
 }
 
 element {
@@ -72,55 +69,52 @@ element {
     padding: 						15px;
 }
 element normal.normal {
-    background-color: 				@bg;
-    text-color:       				@fg;
+    background-color: 					@bg;
+    text-color:       					@fg;
 }
 element normal.urgent {
-    background-color: 				@bg;
-    text-color:       				@red;
+    background-color: 					@bg;
+    text-color:       					@red;
 }
 element normal.active {
-    background-color: 				@bg;
-    text-color:       				@fg;
-    border-color: 					@green;
+    background-color: 					@bg;
+    text-color:       					@fg;
 }
 element selected.normal {
-    background-color: 				@bg;
-    text-color:       				@fg;
+    background-color: 					@bg;
+    text-color:       					@fg;
     border-color: 					@fg;
 }
 element selected.urgent {
-    background-color: 				@bg;
-    text-color:       				@red;
+    background-color: 					@bg;
+    text-color:       					@red;
 }
 element selected.active {
-    background-color: 				@bg;
-    text-color:       				@fg;
+    background-color: 					@bg;
+    text-color:       					@fg;
     border-color: 					@fg;
 }
 element alternate.normal {
-    background-color: 				@bg;
-    text-color:       				@fg;
+    background-color: 					@bg;
+    text-color:       					@fg;
 }
 element alternate.urgent {
-    background-color: 				@bg;
-    text-color:       				@fg;
+    background-color: 					@bg;
+    text-color:       					@fg;
 }
 element alternate.active {
-    background-color: 				@bg;
-    text-color:       				@fg;
+    background-color: 					@bg;
+    text-color:       					@fg;
 }
 
 sidebar {
     border:       					0px;
-    border-color: 					@ac;
     border-radius: 					0px;
 }
 
 button {
-    horizontal-align:               0.5;
-    vertical-align:                 0.5;
-    background-color:             	@se;
+    horizontal-align:               			0.5;
+    vertical-align:                 			0.5;
     margin: 						5px;
     padding: 						15px;
     text-color: 					@fg;
@@ -130,7 +124,7 @@ button {
 }
 
 button selected {
-    background-color:             	@bg;
+    background-color:             			@bg;
     text-color: 					@fg;
     border: 						4px;
     border-radius: 					4px;
@@ -147,7 +141,6 @@ scrollbar {
 
 message {
     border: 						0px;
-    border-color: 					@ac;
     padding: 						1px;
 }
 

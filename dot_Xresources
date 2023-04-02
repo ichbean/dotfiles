@@ -1,47 +1,6 @@
-Xft.dpi:        144
+Xft.dpi:        132
 Xft.antialias:  true
 Xft.rgba:       rgb
 Xft.hinting:    true
 Xft.hintstyle:  hintslight
-
-URxvt.font: xft:PragmataPro:size=13
-URxvt.scrollBar: 0
-URxvt.cursorBlink: 0
-URxvt.pointerBlank: 1
-URxvt.geometry: 150x53
-URxvt.internalBorder: 1
-URxvt.iso14755: 0
-
-URxvt*.foreground:          #2D2006
-URxvt*.background:          #FAF8F5
-URxvt*.cursorColor:         #9EB8EB
-URxvt*.highlightColor:      #B6AD9A
-URxvt*.highlightTextColor:  #FAF8F5
-
-*color0  : #FAF8F5
-*color1  : #896724
-*color2  : #4D71BD
-*color3  : #977D4A
-*color4  : #063289
-*color5  : #B29762
-*color6  : #728FCB
-*color7  : #2D2006
-
-*color8  : #2D2006
-*color9  : #896724
-*color10 : #4D71BD
-*color11 : #977D4A
-*color12 : #063289
-*color13 : #B29762
-*color14 : #728FCB
-*color15 : #2D2006
-
-*color16 : #AEB1B7
-*color17 : #B6AD9A
-*color18 : #D22B09
-*color19 : #D3DCE9
-! lightline insert mode complementary colours
-*color20 : #895D06
-*color21 : #BD994D
-*color22 : #CBAE72
-*color23 : #9EB8EB
+Xcursor.size: 	42

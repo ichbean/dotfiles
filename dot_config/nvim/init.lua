@@ -8,6 +8,10 @@ vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
+vim.opt.ignorecase = true
+vim.opt.hlsearch = true
+vim.opt.incsearch = true
+vim.opt.smartcase = true
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -47,7 +51,7 @@ require("lazy").setup({
     {"lukas-reineke/indent-blankline.nvim"}
 })
 
--- Jump to last position in opened file
+-- Jump to the last cursor position in an opened file
 vim.api.nvim_create_autocmd('BufReadPost', {
     callback = function()
         local mark = vim.api.nvim_buf_get_mark(0, '"')

@@ -80,10 +80,13 @@ return {
             end)
 
             lsp.ensure_installed({
+                'bashls',
                 'lua_ls',
                 'pyright',
                 'rust_analyzer'
             })
+
+            require('lspconfig').rust_analyzer.setup({})
 
             lsp.setup()
         end

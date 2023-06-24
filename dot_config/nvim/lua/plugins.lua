@@ -36,9 +36,11 @@ return {
 
     {
         "shaunsingh/nord.nvim",
-        lazy = false, -- make sure we load this during startup if it is your main colorscheme
-        priority = 1000, -- make sure to load this before all the other start plugins
+        lazy = false,
+        priority = 1000,
         config = function()
+            vim.g.nord_italic = false
+            vim.g.nord_bold = false
             vim.cmd([[colorscheme nord]])
         end
     },
@@ -52,6 +54,14 @@ return {
                 component_separators = "|",
                 section_separators = ""
             }
+        }
+    },
+
+    {
+        "echasnovski/mini.align",
+        version = "false",
+        opts = {
+            start = 'ga'
         }
     },
 
@@ -123,7 +133,7 @@ return {
             lsp.ensure_installed({
                 'bashls',
                 'lua_ls',
-                'pyright',
+                'pylsp',
                 'rust_analyzer'
             })
 

@@ -15,6 +15,13 @@ import:
 bandcamp:
     art: yes
 
+convert:
+    auto: yes
+    never_convert_lossy_files: yes
+    ffmpeg: /usr/bin/ffmpeg
+    opts: -ab 320k -ac 2 -ar 48000
+    max_bitrate: 320
+
 embedart:
     remove_art_file: yes
 

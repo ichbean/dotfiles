@@ -71,6 +71,7 @@ return {
         event = 'InsertEnter',
         dependencies = {
             {'L3MON4D3/LuaSnip'},
+            {'hrsh7th/cmp-path'}
         },
         config = function()
             require('lsp-zero.cmp').extend()
@@ -79,6 +80,11 @@ return {
             local cmp_action = require('lsp-zero.cmp').action()
 
             cmp.setup({
+                sources = {
+                    {name = 'path'},
+                    {name = 'nvim_lsp'},
+                    {name = 'luasnip', keyword_length = 2}
+                },
                 preselect = 'item',
                 completion = {
                     completeopt = 'menu, menuone, noinsert'
@@ -120,8 +126,6 @@ return {
                 'pyright',
                 'rust_analyzer'
             })
-
-            require('lspconfig').rust_analyzer.setup({})
 
             lsp.setup()
         end

@@ -1,7 +1,8 @@
 vim.g.mapleader = ' '
 vim.g.localmapleader = ' '
 
-vim.keymap.set('n', '<CR>', ':') -- Command with enter
+vim.keymap.set('n', '<CR>', ':') -- Command with Enter
+vim.keymap.set('n', '<BS>', 'ciw') -- Delete the word under the cursor
 vim.keymap.set({ 'i', 'v', 'n', 's' }, '<C-s>', '<CMD>w<cr><ESC>') -- Save with Ctrl-s
 vim.keymap.set('n', '<ESC>', '<CMD>noh<CR>', {silent = true}) -- Clear search with ESC
 -- Move between splits

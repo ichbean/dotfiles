@@ -1,5 +1,5 @@
 configuration {
-    font: "mono 20";
+    font: "monospace 24";
     sidebar-mode: false;
     hover-select: true;
     display-drun: "";

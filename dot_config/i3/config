@@ -7,7 +7,7 @@ gaps inner 8
 set $mod Mod4
 
 # Tags
-set $tag1 1:>_
+set $tag1 1:❯_
 set $tag2 2:WWW
 set $tag3 3
 set $tag4 4
@@ -52,7 +52,7 @@ for_window [class="^mpv$"] fullscreen enable
 
 
 # Font for window titles. Will also be used by the bar unless a different font
-font pango:Fira Code 14
+font pango:monospace 14
 
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
@@ -193,7 +193,7 @@ bar {
 	modifier $mod
     position top
     strip_workspace_numbers yes
-    status_command py3status -b -c ~/.config/i3/status
+    status_command py3status -bc ~/.config/i3/status
 
     colors {
         background  #2E3440

@@ -1,1 +1,5 @@
 README.md
+{{- if eq .chezmoi.hostname "home" }}
+.xinitrc
+.Xresources
+{{ end -}}

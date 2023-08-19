@@ -23,8 +23,6 @@ if [ -f "$usermodmap" ]; then
     xmodmap "$usermodmap"
 fi
 
-# start some nice programs
-
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
   [ -x "$f" ] && . "$f"
@@ -39,11 +37,7 @@ xinput set-prop "TPPS/2 IBM TrackPoint" "Evdev Wheel Emulation Axes" 6 7 4 5
 xinput set-prop "TPPS/2 IBM TrackPoint" "Device Accel Constant Deceleration" 0.75
 
 setxkbmap -option "caps:swapescape"
-setxkbmap -layout "dvorak,pl" -variant ",ru_phonetic_dvorak"
-setxkbmap -option 'grp:win_space_toggle'
+setxkbmap -layout "us" -variant "dvorak"
 
-export QT_QPA_PLATFORMTHEME=qt5ct
-
-# xset -b &
 picom --experimental-backends &
 exec i3

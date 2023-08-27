@@ -7,7 +7,8 @@ general {
 }
 
 clock {
-        format_time = '%H:%M:%S '
+    format_time = '%H:%M:%S'
+    on_click 1 = 'exec --no-startup-id $HOME/.config/i3/scripts/status_date'
 }
 
 battery_level {
@@ -17,8 +18,9 @@ battery_level {
     color_bad = '#D8DEE9'
     color_degraded = '#D8DEE9'
     color_charging = '#A3BE8C'
-    notification = true
-    notify_low_level = true
+    #notification = true
+    #notify_low_level = true
+    on_click 1 = 'exec --no-startup-id $HOME/.config/i3/scripts/status_battery'
 }
 
 volume_status {

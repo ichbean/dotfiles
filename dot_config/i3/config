@@ -1,10 +1,10 @@
+set $mod Mod4
+font pango:monospace 14
 hide_edge_borders both
 new_window pixel 0
 new_float pixel 3
 smart_gaps on
 gaps inner 8
-
-set $mod Mod4
 
 # Tags
 set $tag1 1:❯_
@@ -14,20 +14,18 @@ set $tag4 4
 set $tag9 9:MUSIC
 
 # Autostart
-exec --no-startup-id ~/.config/i3/scripts/alternating_layouts.py &
+exec --no-startup-id python ~/.config/i3/scripts/alternating_layouts.py &
 exec --no-startup-id feh --randomize --bg-scale ~/Pictures/Wallpapers &
 exec --no-startup-id xss-lock --transfer-sleep-lock -- ~/.config/i3/scripts/lock.sh --nofork
 exec i3-sensible-terminal
 
 # Workspace assignments
-
 for_window [class="^kitty$"] move container to workspace $tag1, focus
 for_window [class="^Termite$"] move container to workspace $tag1, focus
 for_window [class="^Urxvt$"] move container to workspace $tag1, focus
-for_window [class="^Firefox$"] move container to workspace $tag2, focus
+for_window [class="^firefox$"] move container to workspace $tag2, focus
 for_window [class="^Chromium$"] move container to workspace $tag2, focus
 for_window [class="^cmus$"] move container to workspace $tag9, focus
-
 
 # Bindings
 bindsym $mod+r exec rofi -show drun
@@ -35,31 +33,19 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+l exec ~/.config/i3/scripts/lock.sh --nofork
 bindsym $mod+Shift+m exec kitty --class cmus sh -c cmus
 bindsym $mod+Tab workspace back_and_forth
-
-
-# FN keys
+# Fn keys
 set $refresh_i3status killall -s USR1 py3status
-bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
+bindsym XF86AudioMute exec amixer -q sset Master toggle && $refresh_i3status
 bindsym XF86AudioRaiseVolume exec amixer -q sset Master 3%+ && $refresh_i3status
 bindsym XF86AudioLowerVolume exec amixer -q sset Master 3%- && $refresh_i3status
-bindsym XF68AudioMicMute exec pactl set-source-mute 1 toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec amixer -q sset Capture toggle && $refresh_i3status
 bindsym XF86MonBrightnessUp exec light -A 5%
 bindsym XF86MonBrightnessDown exec light -U 5%
 
 # Window settings
 for_window [class="^cmus$"] floating enable, border pixel 2, resize set 1600 840, move position center
 for_window [class="^mpv$"] fullscreen enable
-
-
-# Font for window titles. Will also be used by the bar unless a different font
-font pango:monospace 14
-
-# use these keys for focus, movement, and resize directions when reaching for
-# the arrows is not convenient
-set $left h
-set $down j
-set $up k
-set $right l
+for_window [class="^jetbrains-pycharm$"] focus
 
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -67,45 +53,29 @@ floating_modifier $mod
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start program launcher
+set $left d
+set $down h
+set $up t
+set $right s
 
-# change focus
 bindsym $mod+$left focus left
 bindsym $mod+$down focus down
 bindsym $mod+$up focus up
-#bindsym $mod+$right focus right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindsym $mod+$right focus right
 
 # move focused window
-bindsym $mod+Shift+$left move left
-bindsym $mod+Shift+$down move down
-bindsym $mod+Shift+$up move up
-bindsym $mod+Shift+$right move right
-
-# alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# split in horizontal orientation
-#bindsym $mod+h split h
-
-# split in vertical orientation
-#bindsym $mod+v split v
+bindsym $mod+Right resize shrink width 5 px or 5 ppt
+bindsym $mod+Up resize grow height 5 px or 5 ppt
+bindsym $mod+Down resize shrink height 5 px or 5 ppt
+bindsym $mod+Left resize grow width 5 px or 5 ppt
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
-
-# change container layout (stacked, tabbed, toggle split)
-# bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -116,17 +86,6 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
-# focus the child container
-#bindsym $mod+d focus child
-
-# move the currently focused window to the scratchpad
-bindsym $mod+Shift+minus move scratchpad
-
-# Show the next scratchpad window or hide the focused scratchpad window.
-# If there are multiple scratchpad windows, this command cycles through them.
-bindsym $mod+minus scratchpad show
-
-# switch to workspace
 bindsym $mod+1 workspace $tag1
 bindsym $mod+2 workspace $tag2
 bindsym $mod+3 workspace $tag3
@@ -139,7 +98,6 @@ bindsym $mod+9 workspace $tag9
 bindsym $mod+m workspace $tag9
 bindsym $mod+0 workspace 10
 
-# move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $tag1
 bindsym $mod+Shift+2 move container to workspace $tag2
 bindsym $mod+Shift+3 move container to workspace $tag3
@@ -151,47 +109,13 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
-# reload the configuration file
-bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-# resize window (you can also use the mouse for that)
-mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym $left       resize shrink width 10 px or 10 ppt
-        bindsym $down       resize grow height 10 px or 10 ppt
-        bindsym $up         resize shrink height 10 px or 10 ppt
-        bindsym $right      resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left        resize shrink width 10 px or 10 ppt
-        bindsym Down        resize grow height 10 px or 10 ppt
-        bindsym Up          resize shrink height 10 px or 10 ppt
-        bindsym Right       resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-
-#bindsym $mod+s mode "resize"
-
-
-# Start i3bar to display a workspace bar
 bar {
-	height 52
-	# mode hide
-	# hidden_state hide
-	modifier $mod
     position top
+    padding 6 10 6 0
+    workspace_min_width 60
     strip_workspace_numbers yes
     status_command py3status -bc ~/.config/i3/status
 

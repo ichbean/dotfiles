@@ -1,7 +1,7 @@
 directory: /mnt/data/music
 library: /mnt/data/music/.library.db
 original_date: yes
-plugins: convert embedart fetchart ftintitle lastgenre scrub zero
+plugins: convert fetchart ftintitle lastgenre scrub zero
 threaded: yes
 timeout: 5.0
 verbose: no
@@ -22,9 +22,6 @@ convert:
     opts: -ab 320k -ac 2 -ar 48000
     max_bitrate: 320
 
-embedart:
-    remove_art_file: yes
-
 fetchart:
     cover_names: cover front
     sources:
@@ -36,7 +33,7 @@ fetchart:
         - fanarttv
 
 zero:
-  fields: month day comments
+  fields: month day comments images
   update_database: true
 
 paths:

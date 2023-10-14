@@ -1,4 +1,5 @@
 return {
+    {{- if eq .chezmoi.hostname "laptop" }}
     {
         "shaunsingh/nord.nvim",
         lazy = false,
@@ -28,12 +29,28 @@ return {
             end
         end
     },
+    {{ end -}}
+
+    {{- if eq .chezmoi.hostname "home" }}
+    {
+        "savq/melange-nvim",
+            lazy = false,
+            priority = 1000,
+            config = function ()
+                vim.cmd.colorscheme 'melange'
+            end
+    },
+    {{ end -}}
 
     {
         "nvim-lualine/lualine.nvim",
         opts = {
             options = {
+                {{- if eq .chezmoi.hostname "laptop" }}
                 theme = "nord",
+                {{ else }}
+                theme = "melange",
+                {{ end -}}
                 icons_enabled = false,
                 component_separators = "|",
                 section_separators = ""

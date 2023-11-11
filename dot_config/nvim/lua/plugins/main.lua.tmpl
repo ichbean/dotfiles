@@ -1,5 +1,7 @@
 return {
-    {{- if eq .chezmoi.hostname "laptop" }}
+    { "rktjmp/lush.nvim" },
+    { "typicode/bg.nvim", lazy = false },
+    {{ if eq .chezmoi.hostname "laptop" }}
     {
         "shaunsingh/nord.nvim",
         lazy = false,

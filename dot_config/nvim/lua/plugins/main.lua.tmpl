@@ -1,7 +1,7 @@
 return {
     { "rktjmp/lush.nvim" },
     { "typicode/bg.nvim", lazy = false },
-    {{ if eq .chezmoi.hostname "laptop" }}
+    {{ if ne .chezmoi.hostname "home" }}
     {
         "shaunsingh/nord.nvim",
         lazy = false,

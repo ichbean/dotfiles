@@ -48,10 +48,10 @@ return {
         "nvim-lualine/lualine.nvim",
         opts = {
             options = {
-                {{- if eq .chezmoi.hostname "laptop" }}
-                theme = "nord",
-                {{ else }}
+                {{- if eq .chezmoi.hostname "home" }}
                 theme = "melange",
+                {{ else }}
+                theme = "nord",
                 {{ end -}}
                 icons_enabled = false,
                 component_separators = "|",

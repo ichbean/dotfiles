@@ -25,6 +25,7 @@ alias ls='eza'
 alias ll='eza -lg'
 alias cp='cp -v'
 alias mv='mv -v'
+alias statuswatch='watch -c SYSTEMD_COLORS=1 systemctl status'
 
 bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line

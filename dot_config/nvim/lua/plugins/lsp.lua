@@ -1,11 +1,13 @@
 return {
     {
         'VonHeikemen/lsp-zero.nvim',
-        branch = 'v2.x',
+        branch = 'v3.x',
         lazy = true,
-        config = function()
-            require('lsp-zero.settings').preset({})
-        end
+        config = false,
+        init = function()
+            vim.g.lsp_zero_extend_cmp = 0
+            vim.g.lsp_zero_extend_lspconfig = 0
+        end,
     },
 
     {
@@ -13,13 +15,16 @@ return {
         event = 'InsertEnter',
         dependencies = {
             {'L3MON4D3/LuaSnip'},
-            {'hrsh7th/cmp-path'}
+            {'hrsh7th/cmp-path'},
+            {'kawre/neotab.nvim', opts = {tabkey = ''}}
         },
         config = function()
-            require('lsp-zero.cmp').extend()
+            local lsp_zero = require('lsp-zero')
+            lsp_zero.extend_cmp()
 
             local cmp = require('cmp')
-            local cmp_action = require('lsp-zero.cmp').action()
+            local neotab = require('neotab')
+            local cmp_action = lsp_zero.cmp_action()
 
             cmp.setup({
                 sources = {
@@ -31,62 +36,60 @@ return {
                 completion = {
                     completeopt = 'menu, menuone, noinsert'
                 },
-                mapping = {
-                    ['<Tab>'] = cmp_action.luasnip_supertab(),
+                formatting = lsp_zero.cmp_format({details = true}),
+                mapping = cmp.mapping.preset.insert({
+                    ['<Tab>'] = cmp.mapping(function()
+                        if cmp.visible() then
+                            cmp.select_next_item()
+                        else
+                            neotab.tabout()
+                        end
+                    end),
                     ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
-                    ['<CR>'] = cmp.mapping.confirm({select = true})
-                }
+                    ['<CR>'] = cmp.mapping.confirm({select = true}),
+                    ['<C-Space>'] = cmp.mapping.complete(),
+                    ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+                    ['<C-d>'] = cmp.mapping.scroll_docs(4)
+                }),
+                snippet = {
+                    expand = function(args)
+                        require('luasnip').lsp_expand(args.body)
+                    end,
+                },
             })
         end
     },
 
+    -- LSP
     {
         'neovim/nvim-lspconfig',
         cmd = 'LspInfo',
         event = {'BufReadPre', 'BufNewFile'},
         dependencies = {
             {'hrsh7th/cmp-nvim-lsp'},
-            {'williamboman/mason-lspconfig.nvim'},
-            {'simrat39/rust-tools.nvim'},
-            {
-                'williamboman/mason.nvim',
-                build = function()
-                    pcall(vim.cmd, 'MasonUpdate')
-                end,
-            },
         },
-
         config = function()
-            local lsp = require('lsp-zero')
-            lsp.on_attach(function(client, bufnr)
-                lsp.default_keymaps({buffer = bufnr})
+            local lsp_zero = require('lsp-zero')
+            lsp_zero.extend_lspconfig()
+
+            lsp_zero.on_attach(function(client, bufnr)
+                lsp_zero.default_keymaps({buffer = bufnr})
             end)
 
-            lsp.ensure_installed({
-                'bashls',
-                'lua_ls',
-                'pylsp',
-                'rust_analyzer'
-            })
+            local lua_opts = lsp_zero.nvim_lua_ls()
+            require('lspconfig').lua_ls.setup(lua_opts)
 
-            lsp.skip_server_setup({'rust_analyzer'})
-            lsp.setup()
-
-            local rt = require('rust-tools')
-            rt.setup({
-                server = {
-                    on_attach = function(_, bufnr)
-                        vim.keymap.set('n', '<leader>ca', rt.hover_actions.hover_actions, {buffer = bufnr})
-                    end
+            require('lspconfig').pylsp.setup({
+                settings = {
+                    pylsp = {
+                        plugins = {
+                            ruff = {
+                                enabled = true
+                            }
+                        }
+                    }
                 }
             })
         end
-    },
-
-    {
-        'dgagn/diagflow.nvim',
-        opts = {
-            max_width = 80,
-        }
     }
 }

@@ -8,6 +8,14 @@
 [credential "https://github.com"]
   helper   = cache
   username = ichbean
-[credential "https://gitlab.com"]
-  helper   = cache
-  username = ichbean
+[diff]
+        tool = difftastic
+
+[difftool]
+        prompt = false
+
+[difftool "difftastic"]
+        cmd = difft "$LOCAL" "$REMOTE"
+
+[pager]
+        difftool = true

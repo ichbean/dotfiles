@@ -24,7 +24,7 @@ battery_level {
 }
 
 volume_status {
-    command = 'amixer'
+    command = 'pamixer'
     format = 'VOL:{percentage}%'
     format_muted = 'VOL:{percentage}%'
     color_muted = '#BF616A'

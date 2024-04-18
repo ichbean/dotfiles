@@ -1,5 +1,4 @@
 return {
-    { "rktjmp/lush.nvim" },
     { "typicode/bg.nvim", lazy = false },
     {{ if ne .chezmoi.hostname "home" }}
     {
@@ -61,13 +60,34 @@ return {
     },
 
     {
-        "lukas-reineke/indent-blankline.nvim", main = 'ibl',
+        "lukas-reineke/indent-blankline.nvim",
+        main = 'ibl',
         opts = {
             indent = { char = '┆' },
             scope = {
                 show_start = false,
                 show_end = false
             }
+        }
+    },
+
+    {
+        "folke/which-key.nvim",
+        event = "VeryLazy",
+        init = function()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 300
+        end,
+        opts = {}
+    },
+
+    {
+        "dgagn/diagflow.nvim",
+        event = "LspAttach",
+        opts = {
+            toggle_event = { 'InsertEnter' },
+            placement = 'inline',
+            inline_padding_left = 4,
         }
     }
 }

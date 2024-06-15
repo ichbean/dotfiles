@@ -1,6 +1,8 @@
 set $mod Mod4
 font pango:monospace 14
 hide_edge_borders both
+new_window pixel 0
+new_float pixel 3
 # smart_gaps on
 gaps inner 15
 

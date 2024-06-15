@@ -1,10 +1,8 @@
 set $mod Mod4
 font pango:monospace 14
 hide_edge_borders both
-new_window pixel 0
-new_float pixel 3
-smart_gaps on
-gaps inner 8
+# smart_gaps on
+gaps inner 15
 
 # Tags
 set $tag1 1:❯_
@@ -114,6 +112,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 bar {
     position top
+    tray_output none
     padding 6 10 6 0
     workspace_min_width 60
     strip_workspace_numbers yes
@@ -121,10 +120,10 @@ bar {
 
     colors {
         background  #292522
-        statusline  #D8DEE9
-        separator   #4C566A
-        focused_workspace   #4C566A #4C566A #D8DEE9
-        inactive_workspace  #3B4252 #3B4252 #D8DEE9
-        urgent_workspace    #BF616A #BF616A #D8DEE9
+        statusline  #ECE1D7
+        separator   #403A36
+        focused_workspace   #403A36 #403A36 #ECE1D7
+        inactive_workspace  #34302C #34302C #ECE1D7
+        urgent_workspace    #BF616A #BF616A #ECE1D7
     }
 }

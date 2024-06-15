@@ -120,7 +120,7 @@ bar {
     status_command py3status -bc ~/.config/i3/status
 
     colors {
-        background  #2E3440
+        background  #292522
         statusline  #D8DEE9
         separator   #4C566A
         focused_workspace   #4C566A #4C566A #D8DEE9
